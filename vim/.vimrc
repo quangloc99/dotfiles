@@ -1,5 +1,12 @@
 set nocompatible
 
+if v:version < 800
+    execute pathogen#infect('pack/{}/start/{}')
+    echom "pathogen loaded"
+else
+    echom "use default vim package manager"
+endif
+
 " Personal local settings
 " =======================
 set background=dark
