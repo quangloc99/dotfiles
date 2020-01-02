@@ -1,0 +1,6 @@
+[submodule "vim-pathogen"]
+	path = vim-pathogen
+	url = https://github.com/tpope/vim-pathogen
+[submodule "vim/.vim/pack/plugin/start/papercolor-theme"]
+	path = vim/.vim/pack/plugin/start/papercolor-theme
+	url = https://github.com/NLKNguyen/papercolor-theme
