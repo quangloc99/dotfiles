@@ -10,7 +10,21 @@ endif
 " Personal local settings
 " =======================
 set background=dark
+let g:PaperColor_Theme_Options = {
+  \   'language': {
+  \     'python': {
+  \       'highlight_builtins' : 1
+  \     },
+  \     'cpp': {
+  \       'highlight_standard_library': 1
+  \     },
+  \     'c': {
+  \       'highlight_builtins' : 1
+  \     }
+  \   }
+  \ }
 colorscheme PaperColor
+
 let mapleader = ","
 let g:mapleader = ","
 
@@ -31,6 +45,7 @@ set splitright splitbelow
 set clipboard=unnamed
 set cursorline
 set scroll=8
+set wildmenu
 filetype indent plugin on
 nnoremap <leader>w :w<cr>
 
@@ -63,6 +78,9 @@ nnoremap <leader>3 :exe '!' . scriptsHome . 'test'<cr>
 " Setup for competitive programming
 func! SetupCP()
     func! SetIO()
+        if &filetype == ''
+            return
+        endif
         if confirm("Setup IO for cp???", "&Yes\n&No", 1) != 1
             return 
         endif

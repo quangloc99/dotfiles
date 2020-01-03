@@ -1,3 +1,9 @@
+if &filetype != "c"
+    " the thing is, this file is also called when editing "CPP" files.
+    " I currently don't have any other solution for this.
+    " So yeah, just exit the script.
+    finish
+endif
 compiler gcc
 let b:prev_build_choice = 1
 func! Set_makeprg()
