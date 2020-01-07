@@ -77,8 +77,9 @@ nnoremap <leader>3 :exe '!' . scriptsHome . 'test'<cr>
 " ===============
 " Setup for competitive programming
 func! SetupCP()
-    func! SetIO()
-        if &filetype == ''
+    let cp_languages = ['cpp', 'c', 'java', 'pascal', 'javascript', 'python', 'kotlin', 'lua']
+    func! SetIO() abort closure
+        if index(cp_languages, &filetype) == -1
             return
         endif
         if confirm("Setup IO for cp???", "&Yes\n&No", 1) != 1
