@@ -46,6 +46,7 @@ set clipboard=unnamed
 set cursorline
 set scroll=8
 set wildmenu
+
 filetype indent plugin on
 nnoremap <leader>w :w<cr>
 
@@ -58,6 +59,7 @@ nnoremap <leader>r :exec single_file_runner#get_execute_command()<cr>
 
 " Debuging with GDB
 " ===============================
+packadd termdebug
 nnoremap <leader>D :Termdebug %<<cr>
 nnoremap <leader>b :Break<cr>
 nnoremap <leader>B :Clear<cr>
@@ -93,6 +95,6 @@ func! SetupCP()
 
     augroup CPSetup
         au!
-        autocmd BufRead * call SetIO()
+        autocmd BufRead,BufNewFile * call SetIO()
     augroup END
 endfunc
