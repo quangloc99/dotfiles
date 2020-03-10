@@ -95,8 +95,8 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+# toggle sticky. This is the old key for floating
+bindsym $mod+Shift+space floating toggle; sticky toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -188,7 +188,7 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Configurations for i3-gaps
-for_window [class=".*"] border pixel 8
+for_window [class=".*"] border pixel 4
 gaps inner 16
 # class             border         backgr.          text                indicator child_border
 client.focused      $focused_color $focused_color   $focused_text_color #2e9ef4   $focused_color
@@ -196,4 +196,4 @@ client.focused      $focused_color $focused_color   $focused_text_color #2e9ef4 
 # Background image with fed
 exec_always --no-startup-id $HOME/.fehbg
 
-
+exec --no-startup-id bash ./startup-apps.sh
