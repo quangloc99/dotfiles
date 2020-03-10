@@ -1,7 +1,8 @@
 compiler gcc
 let b:prev_build_choice = 1
 let b:cpp_std = "c++17"
-let b:cpp_flag = "-Wall -Wshadow -Wconversion -fsanitize=address -fsanitize=undefined -fno-sanitize-recover \"%:p\" -o %<"
+let b:cpp_flag = "-DLOCAL -Wall -Wshadow -Wconversion -fsanitize=address -fsanitize=undefined -fno-sanitize-recover -ffinite-math-only \"%:p\" -o %<"    
+" let b:cpp_flag = "-DLOCAL \"%:p\" -o %<"   
 func! Set_makeprg()
     let b:prev_build_choice = confirm('Choose build mode:', "&Release\n&Debug", b:prev_build_choice)
 

@@ -12,6 +12,8 @@ func! simple_comment#get_comment(filetype)
         return ['--', '']
     elseif index(['html', 'xml'], a:filetype) != -1
         return ["<!--", "-->"]
+    elseif index(['tex'], a:filetype) != -1
+        return ['%', '']
     else
         return ['#', '']  " well almost configuration file has this kind of commend
     endif
