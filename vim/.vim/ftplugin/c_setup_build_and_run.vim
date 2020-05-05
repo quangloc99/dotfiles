@@ -4,16 +4,18 @@ if &filetype != "c"
     " So yeah, just exit the script.
     finish
 endif
+
 compiler gcc
-let b:prev_build_choice = 1
-func! Set_makeprg()
-    let b:prev_build_choice = confirm('Choose build mode:', "&Release\n&Debug", b:prev_build_choice)
-    if b:prev_build_choice == 2
-        set makeprg=gcc\ -g\ -Wall\ -std=c99\ \"%:p\"\ -o\ %<
-    else
-        set makeprg=gcc\ -O2\ -Wall\ -std=c99\ \"%:p\"\ -o\ %<
+let b:__c_prev_build_choice = 1
+func! s:gen_makeprg()
+    let choice = confirm('Choose build mode:', "&Release\n&Debug", b:__c_prev_build_choice)
+    if choice == 0
+        return
     endif
+    let b:__c_prev_build_choice = choice
+    let option = (['-O2', '-g'])[choice - 1]
+    return printf('gcc %s -Wall -std=c99 "%%:p" -o %%<', option)
 endfunc
 
-let b:set_makeprg = function('Set_makeprg')
+let b:gen_makeprg = function('s:gen_makeprg')
 let b:run_single_file_command = "./%<"

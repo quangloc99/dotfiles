@@ -32,8 +32,8 @@
 " Inorder to get the error, you also want to set the :compiler
 " To use it for each language, you should set those options with ftplugin
 func! single_file_runner#do_make() abort
-    if exists('b:set_makeprg')
-        call b:set_makeprg()
+    if exists('b:gen_makeprg')
+        let &makeprg = b:gen_makeprg()
     end
     let old_makeprg = &makeprg
     let &makeprg = "clear; " . &makeprg
