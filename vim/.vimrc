@@ -1,4 +1,5 @@
 set nocompatible
+set encoding=utf-8
 
 if v:version < 800
     execute pathogen#infect('pack/{}/start/{}')
@@ -42,7 +43,7 @@ set nu ruler showcmd
 set incsearch ignorecase smartcase
 set scrolloff=5
 set splitright splitbelow
-set clipboard=unnamed
+set clipboard=unnamedplus
 set cursorline
 set scroll=8
 set wildmenu
