@@ -47,6 +47,7 @@ set clipboard=unnamedplus
 set cursorline
 set scroll=8
 set wildmenu
+set cc=100
 
 filetype indent plugin on
 nnoremap <leader>w :w<cr>
@@ -80,8 +81,11 @@ nnoremap <leader>3 :exe '!' . scriptsHome . 'test'<cr>
 " ===============
 " Setup for competitive programming
 func! SetupCP()
-    let cp_languages = ['cpp', 'c', 'java', 'pascal', 'javascript', 'python', 'kotlin', 'lua']
+    let cp_languages = ['cpp', 'c', 'java', 'pascal', 'javascript', 'python', 'kotlin', 'lua', 'rust']
     func! SetIO() abort closure
+        unlet! b:single_file_input
+        unlet! b:single_file_output
+        unlet! b:single_file_error
         if index(cp_languages, &filetype) == -1
             return
         endif
