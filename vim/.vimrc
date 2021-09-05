@@ -24,8 +24,7 @@ let g:PaperColor_Theme_Options = {
   \     }
   \   }
   \ }
-" colorscheme PaperColor 
-colorscheme peachpuff
+colorscheme monochrome
 
 let mapleader = ","
 let g:mapleader = ","
