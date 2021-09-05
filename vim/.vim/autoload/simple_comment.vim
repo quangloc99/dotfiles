@@ -4,16 +4,18 @@
 func! simple_comment#get_comment(filetype)
     " I could use a dictionary to store all of these, but meh, they are
     " lengthy, beside a lot of languages are C-like. 
-    if index(['cpp', 'c', 'java', 'pascal', 'javascript'], a:filetype) != -1
+    if index(['cpp', 'c', 'java', 'pascal', 'javascript', 'rust'], a:filetype) != -1
         return ['//', '']
     elseif index(['vim'], a:filetype) != -1
         return ['"', '']
-    elseif index(['lua'], a:filetype) != -1
+    elseif index(['lua', 'moon'], a:filetype) != -1
         return ['--', '']
     elseif index(['html', 'xml'], a:filetype) != -1
         return ["<!--", "-->"]
     elseif index(['tex'], a:filetype) != -1
         return ['%', '']
+    elseif index(['pov', 'asm', 'nasm'], a:filetype) != -1
+        return [';', '']
     else
         return ['#', '']  " well almost configuration file has this kind of commend
     endif

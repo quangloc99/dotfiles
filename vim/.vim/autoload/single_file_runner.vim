@@ -36,7 +36,8 @@ func! single_file_runner#do_make() abort
         let &makeprg = b:gen_makeprg()
     end
     let old_makeprg = &makeprg
-    let &makeprg = "clear; " . &makeprg
+    let msg = "echo " . &makeprg
+    let &makeprg = "clear; " . msg . ";" . &makeprg
     make
     let &makeprg = old_makeprg
 endfunc

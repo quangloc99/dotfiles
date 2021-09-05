@@ -4,16 +4,16 @@
 let b:plaintex_pdfviewer = 'evince'
 let b:__plaintex_prev_choice = 1
 function! s:gen_makeprg()
-    let choice = confirm('Choose the engine', "&pdflatex\n&luatex", b:__plaintex_prev_choice)
+    let choice = confirm('Choose the engine', "&pdflatex\n&lualatex", b:__plaintex_prev_choice)
     if choice == 0
         return ""
     endif
 
     let b:__plaintex_prev_choice = choice
     if choice == 1
-        return 'pdftex -shell-escape -output-format=pdf "%:p"'
+        return 'pdflatex -shell-escape -output-format=pdf "%:p"'
     else
-        return 'luatex --shell-escape --output-format=pdf "%:p" \\end'
+        return 'lualatex -shell-escape -output-format=pdf "%:p"'
     endif
 
 endfunc

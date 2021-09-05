@@ -24,7 +24,8 @@ let g:PaperColor_Theme_Options = {
   \     }
   \   }
   \ }
-colorscheme PaperColor
+" colorscheme PaperColor 
+colorscheme peachpuff
 
 let mapleader = ","
 let g:mapleader = ","
@@ -47,10 +48,20 @@ set clipboard=unnamedplus
 set cursorline
 set scroll=8
 set wildmenu
-set cc=100
+" set cc=80 
+set hlsearch
+set foldmethod=marker
 
 filetype indent plugin on
 nnoremap <leader>w :w<cr>
+
+" Empty line indentation
+" https://vim.fandom.com/wiki/Get_the_correct_indent_for_new_lines_despite_blank_lines
+" There might be more, but these are frequently used so this is just a quick fix.
+" ==========================
+inoremap <CR> <CR>x<BS>
+nnoremap o ox<BS>
+nnoremap O Ox<BS>
 
 " See ~/.vim/autoload/simple_comment.vim 
 noremap <C-_> :call simple_comment#toggle_comment()<cr> 
@@ -58,6 +69,9 @@ noremap <C-_> :call simple_comment#toggle_comment()<cr>
 " See ~/.vim/autoload/single_file_runner.vim
 nnoremap <leader>m :call single_file_runner#do_make()<cr>
 nnoremap <leader>r :exec single_file_runner#get_execute_command()<cr>
+
+" For makefile "all"
+nnoremap <leader>p :!make<cr>
 
 " Debuging with GDB
 " ===============================
@@ -69,13 +83,6 @@ nnoremap <F7> :Over<cr>
 nnoremap <F8> :Step<cr>
 nnoremap <S-F8> :Finish<cr>
 nnoremap <F9> :Continue<cr>
-
-" Run some custom script in some cases
-" ====================================
-let scriptsHome = './'
-nnoremap <leader>1 :exe '!' . scriptsHome . 'compile'<cr>
-nnoremap <leader>2 :exe '!' . scriptsHome . 'run'<cr>
-nnoremap <leader>3 :exe '!' . scriptsHome . 'test'<cr>
 
 " Other utilities
 " ===============
