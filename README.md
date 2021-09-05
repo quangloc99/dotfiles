@@ -8,6 +8,8 @@ First and foremost, install this repo and also recursively install the dependenc
 
 To install configuration for thing in 1 folder, just `cd` to this repo's root and then use the following command.
 
-```sh
+```
 > stow <folder-name>
 ```
+
+"It" will be installed at the home directory. Actually, `stow` will create a symlink to things in that folder instead of copying, so nothing to worry about.
