@@ -7,3 +7,6 @@
 [submodule "vim/.vim/pack/plugin/start/vim-monochrome"]
 	path = vim/.vim/pack/plugin/start/vim-monochrome
 	url = https://github.com/fxn/vim-monochrome
+[submodule "vim/.vim/pack/plugins/start/vimsence"]
+	path = vim/.vim/pack/plugins/start/vimsence
+	url = https://github.com/vimsence/vimsence.git
