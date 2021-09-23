@@ -109,3 +109,4 @@ func! SetupCP()
         autocmd BufRead,BufNewFile * call SetIO()
     augroup END
 endfunc
+
