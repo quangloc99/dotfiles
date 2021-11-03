@@ -2,11 +2,23 @@
 	path = vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
 [submodule "vim/.vim/pack/plugin/start/papercolor-theme"]
-	path = vim/.vim/pack/plugin/start/papercolor-theme
+	path = vim/.vim/pack/plugins/start/papercolor-theme
 	url = https://github.com/NLKNguyen/papercolor-theme
 [submodule "vim/.vim/pack/plugin/start/vim-monochrome"]
-	path = vim/.vim/pack/plugin/start/vim-monochrome
+	path = vim/.vim/pack/plugins/start/vim-monochrome
 	url = https://github.com/fxn/vim-monochrome
 [submodule "vim/.vim/pack/plugins/start/vimsence"]
 	path = vim/.vim/pack/plugins/start/vimsence
 	url = https://github.com/vimsence/vimsence.git
+[submodule "vim/.vim/pack/plugins/start/neomake"]
+	path = vim/.vim/pack/plugins/start/neomake
+	url = https://github.com/neomake/neomake
+[submodule "vim/.vim/pack/plugins/start/nerdtree"]
+	path = vim/.vim/pack/plugins/start/nerdtree
+	url = https://github.com/preservim/nerdtree
+[submodule "vim/.vim/pack/plugins/start/kotlin-vim"]
+	path = vim/.vim/pack/plugins/start/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim
+[submodule "vim/.vim/pack/plugins/start/moonscript-vim"]
+	path = vim/.vim/pack/plugins/start/moonscript-vim
+	url = https://github.com/leafo/moonscript-vim
