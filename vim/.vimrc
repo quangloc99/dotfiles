@@ -42,8 +42,8 @@ set nowrap textwidth=0
 set nu ruler showcmd
 set incsearch ignorecase smartcase
 set scrolloff=5
-set splitright splitbelow
-set clipboard=unnamedplus
+set splitbelow splitright
+set clipboard+=unnamedplus
 set cursorline
 set scroll=8
 set wildmenu
@@ -68,9 +68,22 @@ noremap <C-_> :call simple_comment#toggle_comment()<cr>
 " See ~/.vim/autoload/single_file_runner.vim
 nnoremap <leader>m :call single_file_runner#do_make()<cr>
 nnoremap <leader>r :exec single_file_runner#get_execute_command()<cr>
+nnoremap <leader>cw :botright cw<cr>
 
 " For makefile "all"
 nnoremap <leader>p :!make<cr>
+
+" NERD configuration
+nnoremap <leader>nt :NERDTreeToggle<cr>
+nnoremap <leader>nn :NERDTreeMirror<cr>:NERDTreeFocus<cr>
+nnoremap <leader>nf :NERDTreeFind<cr>
+" Open the existing NERDTree on each new tab. 
+" autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif 
+" Exit Vim if NERDTree is the only window remaining in the only tab. 
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" Close the tab if NERDTree is the only window remaining in it. 
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
 
 " Debuging with GDB
 " ===============================
@@ -110,3 +123,5 @@ func! SetupCP()
     augroup END
 endfunc
 
+let g:syntastic_cpp_checkers = ['clang_check']
+let g:syntastic_kotlin_checkers = ['kotlinc']
