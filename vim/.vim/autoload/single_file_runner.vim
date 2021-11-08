@@ -38,7 +38,11 @@ func! single_file_runner#do_make() abort
     let old_makeprg = &makeprg
     let msg = "echo " . &makeprg
     let &makeprg = "clear; " . msg . ";" . &makeprg
-    make
+    if exists(":Neomake")
+        Neomake!
+    else 
+        make
+    endif
     let &makeprg = old_makeprg
 endfunc
 
