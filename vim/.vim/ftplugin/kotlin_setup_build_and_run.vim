@@ -3,4 +3,4 @@ func! s:gen_makeprg()
 endfunc
 
 let b:gen_makeprg = function('s:gen_makeprg')
-let b:run_single_file_command = "java -jar %<.jar"
+let b:run_single_file_command = "java -ea -jar %<.jar"
