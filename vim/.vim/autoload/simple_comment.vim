@@ -4,7 +4,7 @@
 func! simple_comment#get_comment(filetype)
     " I could use a dictionary to store all of these, but meh, they are
     " lengthy, beside a lot of languages are C-like. 
-    if index(['cpp', 'c', 'java', 'pascal', 'javascript', 'rust'], a:filetype) != -1
+    if index(['cpp', 'c', 'java', 'pascal', 'javascript', 'rust', 'kotlin'], a:filetype) != -1
         return ['//', '']
     elseif index(['vim'], a:filetype) != -1
         return ['"', '']
@@ -28,7 +28,7 @@ func! simple_comment#toggle_comment()
     endif
     let changed_line = substitute(cur_line, '^\(\s*\)' . b:comment_start . '\ \?\(.\{-}\)\ \?' . b:comment_stop . '\(.*\)', '\1\2\3', '')  
     if changed_line == cur_line 
-        let changed_line = substitute(cur_line, '^\(\s*\)\(.*\)', '\1' . b:comment_start . ' \2 ' . b:comment_stop, '')  
+        let changed_line = substitute(cur_line, '^\(\s*\)\(.*\)', '\1' . b:comment_start . ' \2' . b:comment_stop, '')  
     endif
     call setline(line('.'), changed_line)
 endfunc
