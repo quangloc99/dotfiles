@@ -49,6 +49,7 @@ set scroll=8
 set wildmenu
 " set cc=80 
 set hlsearch
+nohls
 set foldmethod=marker
 
 filetype indent plugin on
@@ -69,6 +70,31 @@ noremap <C-_> :call simple_comment#toggle_comment()<cr>
 nnoremap <leader>m :call single_file_runner#do_make()<cr>
 nnoremap <leader>r :exec single_file_runner#get_execute_command()<cr>
 nnoremap <leader>cw :botright cw<cr>
+
+" Status line
+" ===========
+
+" function that wrap neomake statusline
+func! MyNeomakeStatusLine() abort
+    if !exists(":Neomake")
+        return ""
+    endif
+    return "Neomake: " . neomake#statusline#get(g:actual_curbuf, {
+          \ 'format_running': '… ({{running_job_names}})',
+          \ 'format_loclist_ok': '✓',
+          \ 'format_quickfix_ok': '',
+          \ 'format_quickfix_issues': '%s',
+          \ }) . "%#StatusLine#"
+endfunc
+
+set laststatus=2
+set statusline=
+set statusline+=%m%r%w%q\ %a%f
+set statusline+=%=%=%=
+set statusline+=%l:%v\ \ %P\|%L
+set statusline+=%=
+set statusline+=\ %{%MyNeomakeStatusLine()%}
+set statusline+=.\ %y
 
 " For makefile "all"
 nnoremap <leader>p :!make<cr>
