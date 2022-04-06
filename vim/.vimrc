@@ -24,7 +24,7 @@ let g:PaperColor_Theme_Options = {
   \     }
   \   }
   \ }
-colorscheme monochrome
+colorscheme PaperColor
 
 let mapleader = ","
 let g:mapleader = ","
@@ -47,7 +47,7 @@ set clipboard+=unnamedplus
 set cursorline
 set scroll=8
 set wildmenu
-" set cc=80 
+set cc=80
 set hlsearch
 nohls
 set foldmethod=marker
@@ -70,6 +70,16 @@ noremap <C-_> :call simple_comment#toggle_comment()<cr>
 nnoremap <leader>m :call single_file_runner#do_make()<cr>
 nnoremap <leader>r :exec single_file_runner#get_execute_command()<cr>
 nnoremap <leader>cw :botright cw<cr>
+
+" clang-format
+map <C-K> :py3f ~/.vim/clang-format.py<cr>
+imap <C-K> <c-o>:py3f ~/.vim/clang-format.py<cr>
+function! FormatFile()
+    let l:lines="all"
+    py3f ~/.vim/clang-format.py
+endfunction
+map <leader>fm :call FormatFile()<cr>
+
 
 " Status line
 " ===========
@@ -98,6 +108,7 @@ set statusline+=.\ %y
 
 " For makefile "all"
 nnoremap <leader>p :!make<cr>
+nnoremap <leader>cm :!cmake --build build<cr>
 
 " NERD configuration
 nnoremap <leader>nt :NERDTreeToggle<cr>
