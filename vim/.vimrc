@@ -80,6 +80,10 @@ function! FormatFile()
 endfunction
 map <leader>fm :call FormatFile()<cr>
 
+" Gitgutter
+if exists(":GitGutterEnable")
+    GitGutterEnable
+endif
 
 " Status line
 " ===========
