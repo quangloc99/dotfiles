@@ -22,3 +22,6 @@
 [submodule "vim/.vim/pack/plugins/start/moonscript-vim"]
 	path = vim/.vim/pack/plugins/start/moonscript-vim
 	url = https://github.com/leafo/moonscript-vim
+[submodule "vim/.vim/pack/plugins/start/vim-antlr"]
+	path = vim/.vim/pack/plugins/start/vim-antlr
+	url = https://github.com/jrozner/vim-antlr

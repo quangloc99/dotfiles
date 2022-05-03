@@ -59,17 +59,21 @@ func! single_file_runner#get_execute_command() abort
     if !exists("b:run_single_file_command")
         return ""
     endif
-    let command = "!clear; " . b:run_single_file_command . " "
+    if has('nvim')
+        let l:command = "!" . b:run_single_file_command . " "
+    else
+        let l:command = "!clear; " . b:run_single_file_command . " "
+    endif
     if exists("b:single_file_input")
-        let command .= "< " . b:single_file_input . ' '
+        let l:command .= "< " . b:single_file_input . ' '
     endif
 
     if exists("b:single_file_output")
-        let command .= "> " . b:single_file_output . ' '
+        let l:command .= "> " . b:single_file_output . ' '
     endif
 
     if exists("b:single_file_error")
-        let command .= "2> " . b:single_file_error . ' '
+        let l:command .= "2> " . b:single_file_error . ' '
     endif
-    return command
+    return l:command
 endfunc
