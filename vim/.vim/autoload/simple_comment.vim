@@ -4,7 +4,7 @@
 func! simple_comment#get_comment(filetype)
     " I could use a dictionary to store all of these, but meh, they are
     " lengthy, beside a lot of languages are C-like. 
-    if index(['cpp', 'c', 'java', 'pascal', 'javascript', 'rust', 'kotlin', 'scss'], a:filetype) != -1
+    if index(['cpp', 'c', 'java', 'pascal', 'javascript', 'rust', 'kotlin', 'scss', 'antlr4'], a:filetype) != -1
         return ['//', '']
     elseif index(['vim'], a:filetype) != -1
         return ['"', '']
