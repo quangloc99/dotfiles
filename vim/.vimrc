@@ -72,18 +72,34 @@ nnoremap <leader>r :exec single_file_runner#get_execute_command()<cr>
 nnoremap <leader>cw :botright cw<cr>
 
 " clang-format
-map <C-K> :py3f ~/.vim/clang-format.py<cr>
 imap <C-K> <c-o>:py3f ~/.vim/clang-format.py<cr>
 function! FormatFile()
     let l:lines="all"
     py3f ~/.vim/clang-format.py
 endfunction
-map <leader>fm :call FormatFile()<cr>
+nnoremap <leader>fk :py3f ~/.vim/clang-format.py<cr>
+nnoremap <leader>fm :call FormatFile()<cr>
 
 " Gitgutter
+" =========
+let g:gitgutter_terminal_reports_focus=0
 if exists(":GitGutterEnable")
     GitGutterEnable
+    " GitGutterLineHighlightsEnable
+    GitGutterLineNrHighlightsEnable
+    set updatetime=500
 endif
+
+" vimsense
+" ========
+let g:vimsence_client_id = '439476230543245312'
+let g:vimsence_small_text = 'NeoVim'
+let g:vimsence_small_image = 'neovim'
+let g:vimsence_editing_details = 'Editing the future'
+let g:vimsence_editing_state = 'Working on self-improvement'
+let g:vimsence_file_explorer_text = 'In NERDTree'
+let g:vimsence_file_explorer_details = 'Looking for life purposes'
+" let g:vimsence_custom_icons = {'filetype': 'iconname'}
 
 " Status line
 " ===========
@@ -112,7 +128,7 @@ set statusline+=.\ %y
 
 " For makefile "all"
 nnoremap <leader>p :!make<cr>
-nnoremap <leader>cm :!cmake --build build<cr>
+nnoremap <leader>cm :!cmake --build build 2> .errors<cr>:cf .errors<cr>
 
 " NERD configuration
 nnoremap <leader>nt :NERDTreeToggle<cr>
@@ -136,6 +152,12 @@ nnoremap <F7> :Over<cr>
 nnoremap <F8> :Step<cr>
 nnoremap <S-F8> :Finish<cr>
 nnoremap <F9> :Continue<cr>
+
+" Moving around the windows
+nnoremap <C-H> <C-W>h
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
 
 " Other utilities
 " ===============
