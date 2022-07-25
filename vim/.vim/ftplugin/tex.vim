@@ -11,9 +11,9 @@ function! s:gen_makeprg()
 
     let b:__plaintex_prev_choice = choice
     if choice == 1
-        return 'pdflatex -shell-escape -output-format=pdf "%:p"'
+        return 'pdflatex -shell-escape -output-format=pdf "%:p" -halt-on-error'
     else
-        return 'lualatex -shell-escape -output-format=pdf "%:p"'
+        return 'lualatex -shell-escape -output-format=pdf "%:p" -halt-on-error'
     endif
 
 endfunc

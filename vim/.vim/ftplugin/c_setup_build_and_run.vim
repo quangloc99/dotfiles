@@ -14,7 +14,7 @@ func! s:gen_makeprg()
     endif
     let b:__c_prev_build_choice = choice
     let option = (['-O2', '-g'])[choice - 1]
-    return printf('gcc %s -DLOCAL -Wshadow -Wconversion -Wall -Wextra -std=c99 "%%:p" -o %%<', option)
+    return printf('gcc %s -pedantic -DLOCAL -Wshadow -Wconversion -Wall -Wextra -std=c11 -lm "%%:p" -o %%<', option)
 endfunc
 
 let b:gen_makeprg = function('s:gen_makeprg')

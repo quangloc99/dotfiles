@@ -25,3 +25,7 @@
 [submodule "vim/.vim/pack/plugins/start/vim-antlr"]
 	path = vim/.vim/pack/plugins/start/vim-antlr
 	url = https://github.com/jrozner/vim-antlr
+[submodule "vim/.vim/pack/coc/start/--depth=1"]
+	path = vim/.vim/pack/coc/start/--depth=1
+	url = https://github.com/neoclide/coc.nvim.git
+	branch = release
