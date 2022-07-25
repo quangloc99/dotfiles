@@ -29,3 +29,6 @@
 	path = vim/.vim/pack/coc/start/--depth=1
 	url = https://github.com/neoclide/coc.nvim.git
 	branch = release
+[submodule "vim/.vim/pack/airblade/start/vim-gitgutter"]
+	path = vim/.vim/pack/airblade/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
