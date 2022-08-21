@@ -47,10 +47,11 @@ set clipboard+=unnamedplus
 set cursorline
 set scroll=8
 set wildmenu
-set cc=80
+set cc=120
 set hlsearch
 nohls
 set foldmethod=marker
+set mouse=a
 
 filetype indent plugin on
 nnoremap <leader>w :w<cr>
@@ -72,13 +73,21 @@ nnoremap <leader>r :exec single_file_runner#get_execute_command()<cr>
 nnoremap <leader>cw :botright cw<cr>
 
 " clang-format
-imap <C-K> <c-o>:py3f ~/.vim/clang-format.py<cr>
-function! FormatFile()
-    let l:lines="all"
-    py3f ~/.vim/clang-format.py
-endfunction
-nnoremap <leader>fk :py3f ~/.vim/clang-format.py<cr>
-nnoremap <leader>fm :call FormatFile()<cr>
+augroup clangformat
+    autocmd!
+    " imap <C-K> <c-o>:py3f ~/.vim/clang-format.py<cr>
+    function! FormatFile()
+        let l:lines="all"
+        py3f ~/.vim/clang-format.py
+    endfunction
+
+    autocmd BufEnter *.cpp,*.c nnoremap <leader>fk :py3f ~/.vim/clang-format.py<cr>
+    autocmd BufEnter *.cpp,*.c nnoremap <leader>fm :call FormatFile()<cr>
+augroup END
+
+augroup prettier
+    autocmd BufEnter *.js,*.ts nnoremap <leader>fm :!yarn prettier --write %:p<cr>
+augroup END
 
 " Gitgutter
 " =========
@@ -104,12 +113,17 @@ let g:vimsence_file_explorer_details = 'Looking for life purposes'
 " Status line
 " ===========
 
+let s:RIGHT_ARROW_CHAR = "\ue0b1"
+let s:LEFT_ARROW_CHAR = "\ue0b3"
+let s:BAR_CHAR = "\u2502"
+let s:MINOR_SLASH_CHAR = "\u2571"
+
 " function that wrap neomake statusline
 func! MyNeomakeStatusLine() abort
     if !exists(":Neomake")
         return ""
     endif
-    return "Neomake: " . neomake#statusline#get(g:actual_curbuf, {
+    return "Neomake: " .. s:MINOR_SLASH_CHAR  .. ' ' .. neomake#statusline#get(g:actual_curbuf, {
           \ 'format_running': '… ({{running_job_names}})',
           \ 'format_loclist_ok': '✓',
           \ 'format_quickfix_ok': '',
@@ -117,14 +131,107 @@ func! MyNeomakeStatusLine() abort
           \ }) . "%#StatusLine#"
 endfunc
 
+func! CustomStatusLine() abort
+    let is_active = win_getid() == g:statusline_winid
+    if l:is_active
+        let stlGroup = '%#StatusLine#'
+    else 
+        let stlGroup = '%#StatusLineNC#'
+    endif
+    
+    if stridx(bufname(winbufnr(g:statusline_winid)), 'NERD_tree') != -1
+        return '[NERD tree]'
+    endif
+    
+    let res = ' '
+    "[modify?][readonly?][preview?][filetype?][other list?]
+    " let res ..= '%#CustomStatusLineBufModifier# %M%R%W%Y%q'
+    let res ..= '%M%R%W%Y%q'
+    " let res ..= g:RIGHT_ARROW_CHAR
+    "  [arg list] dir/file
+    let res ..= ' ' .. s:MINOR_SLASH_CHAR .. l:stlGroup
+    let res ..= ' %a%f '
+    let res ..= s:RIGHT_ARROW_CHAR
+    
+    " let res .= '%#Normal#%='
+    let res ..= '%='
+    " line:col (percent of totalLines)
+    let res ..= '%l:%v (%P of %L)'
+    
+    if g:statusline_winid->winwidth() < 50
+        return res
+    endif
+    
+    let res ..= '%=' . l:stlGroup
+    
+    let res ..= s:LEFT_ARROW_CHAR . ' %{%MyNeomakeStatusLine()%} '
+    
+    return res
+endfunc
+
 set laststatus=2
-set statusline=
-set statusline+=%m%r%w%q\ %a%f
-set statusline+=%=%=%=
-set statusline+=%l:%v\ \ %P\|%L
-set statusline+=%=
-set statusline+=\ %{%MyNeomakeStatusLine()%}
-set statusline+=.\ %y
+set statusline=%!CustomStatusLine()
+
+" Tabline
+" =======
+
+set tabline=%!MyTabLine()
+function! MyTabLine()
+    let s = ''
+    let prv_active = 1
+    for i in range(tabpagenr('$'))
+        let is_active = (i + 1) == tabpagenr()
+        if !l:prv_active && !l:is_active
+            let s ..= s:BAR_CHAR
+        endif
+        let l:prv_active = l:is_active
+        " select the highlighting
+        if l:is_active
+            let s ..= '%#TabLineSel#'
+        else
+            let s ..= '%#TabLine#'
+        endif
+
+        " set the tab page number (for mouse clicks)
+        let s ..= '%' .. (i + 1) .. 'T'
+
+        " the label is made by MyTabLabel()
+        let s ..= ' %{MyTabLabel(' .. (i + 1) .. ')}'
+    endfor
+
+    " after the last tab fill with TabLineFill and reset tab page nr
+    let s ..= '%#TabLineFill#%T'
+
+    " No closing button needed
+    " right-align the label to close the current tab page
+    " if tabpagenr('$') > 1
+        " let s ..= '%=%#TabLine#%999Xclose'
+    " endif
+
+    return s
+endfunction
+
+function! MyTabLabel(n)
+    let buflist = tabpagebuflist(a:n)
+    let winnr = tabpagewinnr(a:n)
+    let bufname = bufname(buflist[winnr - 1])
+    
+    " No NERD_tree as name, fallback to abitary buffer's name
+    if stridx(l:bufname, 'NERD_tree') != -1
+        for buf in buflist
+            let bufname = bufname(buf)
+            if stridx(l:bufname, 'NERD_tree') == -1
+                break
+            endif
+        endfor
+    endif
+    
+    let bufname = l:bufname->pathshorten()
+    if l:bufname->empty()
+        let l:bufname = '[untitled]'
+    endif
+    return ' ' .. a:n .. ' ' .. s:RIGHT_ARROW_CHAR .. ' ' .. l:bufname .. ' '
+endfunction
 
 " For makefile "all"
 nnoremap <leader>p :!make<cr>
