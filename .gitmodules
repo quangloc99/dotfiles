@@ -36,3 +36,12 @@
 	path = vim/.vim/pack/coc/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim.git
 	branch = release
+[submodule "vim/.vim/pack/vim-javascrpit/start/vim-javascript"]
+	path = vim/.vim/pack/vim-javascrpit/start/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
+[submodule "vim/.vim/pack/typescript/start/typescript-vim"]
+	path = vim/.vim/pack/typescript/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim
+[submodule "vim/.vim/pack/jparise/start/graphql"]
+	path = vim/.vim/pack/jparise/start/graphql
+	url = https://github.com/jparise/vim-graphql.git
