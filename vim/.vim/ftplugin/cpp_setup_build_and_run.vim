@@ -1,5 +1,5 @@
 compiler gcc
-let b:cpp_std = 'c++17'
+let b:cpp_std = 'c++20'
 let b:cpp_defines = '-DLOCAL'
 let b:cpp_safety_flags = '-Wall -Wshadow -Wconversion -fsanitize=address -fsanitize=undefined -fno-sanitize-recover -ffinite-math-only -D_GLIBCXX_DEBUG'
 let b:cpp_normal_flags = '-Wall -Wshadow -Wconversion'
