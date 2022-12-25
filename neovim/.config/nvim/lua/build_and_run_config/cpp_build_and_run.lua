@@ -1,6 +1,6 @@
-local M = {
-    __is_config_module__ = true
-}
+require 'config_module' .register(...)
+
+local M = {}
 
 M.presets = {
     ['&Release'] = {

@@ -1,3 +1,5 @@
+require 'config_module'.register(...)
+
 local cmd, opt = vim.cmd, vim.opt
 
 opt.background = 'dark'
@@ -71,7 +73,3 @@ vim.g.vimsence_file_explorer_details = 'Looking for life purposes'
 --           \ })
 --     end
 -- end
-
-return {
-    __is_config_module__ = true
-}

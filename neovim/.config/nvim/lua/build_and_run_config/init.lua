@@ -1,5 +1,3 @@
-require('build_and_run_config.cpp_build_and_run')
+require 'config_module'.register(...)
 
-return {
-    __is_config_module__ = true
-}
+require 'build_and_run_config.cpp_build_and_run'

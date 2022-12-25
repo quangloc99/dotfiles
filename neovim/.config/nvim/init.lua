@@ -12,7 +12,7 @@ end
 local packer_bootstrap = ensure_packer()
 
 local function init()
-    require 'require_config'
+    require 'config_module'
     require 'general_setting'
     require 'key_bindings'
     require 'build_and_run_config'

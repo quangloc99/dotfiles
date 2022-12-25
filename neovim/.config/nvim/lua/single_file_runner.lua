@@ -1,6 +1,6 @@
-local M = {
-    __is_config_module__ = true
-}
+require 'config_module'.register(...)
+
+local M = {}
 
 function M.do_make()
     if type(vim.b.gen_makeprg) == 'function' then

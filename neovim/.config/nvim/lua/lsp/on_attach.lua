@@ -1,6 +1,6 @@
-local M = {
-    __is_config_module__ = true
-}
+require 'config_module'.register(...)
+
+local M = {}
 
 ---comment
 -- Use an `on_attach` function to only map the following keys
