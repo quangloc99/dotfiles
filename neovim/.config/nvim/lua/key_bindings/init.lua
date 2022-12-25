@@ -20,6 +20,9 @@ function M.general_keys()
     keyset('n', '<C-J>', '<C-W>j')
     keyset('n', '<C-K>', '<C-W>k')
     keyset('n', '<C-L>', '<C-W>l')
+
+    keyset('n', '<A-j>', 'gT')
+    keyset('n', '<A-k>', 'gt')
 end
 
 function M.formatter_keybind()
