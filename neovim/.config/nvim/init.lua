@@ -17,16 +17,18 @@ local function init()
     require 'key_bindings'
     require 'build_and_run_config'
     require 'lsp'
+    require 'lines'
 end
 
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
     use 'NLKNguyen/papercolor-theme'
+    use 'mhartington/oceanic-next'
 
-    use 'terrortylor/nvim-comment'
     use 'neomake/neomake'
 
+    use 'terrortylor/nvim-comment'
     require('nvim_comment').setup()
 
     use 'ms-jpq/chadtree'
@@ -45,6 +47,13 @@ return require('packer').startup(function(use)
     -- }
 
     use 'leafgarland/typescript-vim'
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    }
+
+    use { 'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons' }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

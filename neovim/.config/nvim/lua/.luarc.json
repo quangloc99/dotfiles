@@ -1,0 +1,29 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "Lua.workspace.checkThirdParty": false,
+    "Lua.workspace.library": [
+        "/home/darkkcyan/.config/nvim",
+        "/etc/xdg/nvim",
+        "/home/darkkcyan/.local/share/nvim/site",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/chadtree",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/cmp-path",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/neomake",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/nvim-comment",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/packer.nvim",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/papercolor-theme",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/typescript-vim",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ",
+        "/usr/share/nvim/runtime",
+        "/usr/lib/nvim",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/cmp-path/after",
+        "/home/darkkcyan/.local/share/nvim/site/pack/packer/start/vim-vsnip-integ/after",
+        "/usr/share/vim/vimfiles",
+        "${3rd}/luassert/library"
+    ]
+}

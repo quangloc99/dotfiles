@@ -2,8 +2,10 @@ require 'config_module'.register(...)
 
 local cmd, opt = vim.cmd, vim.opt
 
+opt.termguicolors = true
 opt.background = 'dark'
-cmd.colorscheme 'PaperColor'
+-- cmd.colorscheme 'PaperColor'
+cmd.colorscheme 'OceanicNext'
 cmd [[
 hi Normal guibg=NONE ctermbg=NONE
 hi! NonText guibg=NONE ctermbg=NONE
