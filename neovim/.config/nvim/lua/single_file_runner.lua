@@ -49,9 +49,16 @@ end
 
 M.run_single_file_group = vim.api.nvim_create_augroup('run_single_file', { clear = true })
 
+---@class SingleFileRunnerRegistration
+---@field filetype string | string[]
+---@field setup nil | function()
+---@field gen_makeprg nil | function()
+---@field run_single_file_command nil | function()
+
+---@param opts SingleFileRunnerRegistration
 function M.register_single_file_command(opts)
     vim.api.nvim_create_autocmd({ 'FileType' }, {
-        pattern = { opts.filetype },
+        pattern = opts.filetype,
         group = M.run_single_file_group,
         callback = function()
             if type(opts.setup) == 'function' then
