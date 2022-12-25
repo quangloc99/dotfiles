@@ -10,13 +10,13 @@ local function neomake_status()
     if vim.fn.exists(':Neomake') == 0 then
         return ''
     end
-    local res = 'Neomake: ' .. vim.fn['neomake#statusline#get'](vim.g.actual_curbuf, {
+    local curbuff = vim.fn.bufnr('%')
+    local res = 'Neomake (' .. curbuff .. '): ' .. vim.fn['neomake#statusline#get'](curbuff, {
         format_running = '… ({{running_job_names}})',
         format_loclist_ok = '✓',
         format_quickfix_ok = '',
         format_quickfix_issues = '%s',
     })
-    print(res)
     return res
 end
 
