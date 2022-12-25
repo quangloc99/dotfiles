@@ -6,10 +6,6 @@ opt.termguicolors = true
 opt.background = 'dark'
 -- cmd.colorscheme 'PaperColor'
 cmd.colorscheme 'OceanicNext'
-cmd [[
-hi Normal guibg=NONE ctermbg=NONE
-hi! NonText guibg=NONE ctermbg=NONE
-]]
 
 opt.backspace = '2'
 opt.tabstop = 4
@@ -56,22 +52,9 @@ vim.g.vimsence_editing_state = 'Working on self-improvement'
 vim.g.vimsence_file_explorer_text = 'In NERDTree'
 vim.g.vimsence_file_explorer_details = 'Looking for life purposes'
 
--- function setup_statusline()
---     local RIGHT_ARROW_CHAR = string.char(0xe0b1)
---     local LEFT_ARROW_CHAR = string.char(0xe0b3)
---     local BAR_CHAR = string.char(0x2502)
---     local MINOR_SLASH_CHAR = string.char(0x2571)
---    
---     function neomake_status()
---         if vim.fn.exists(':Neomake') ~= 0 then
---             return ''
---         end
---        
---         return "Neomake: " .. s:MINOR_SLASH_CHAR  .. ' ' .. vim.fn['neomake#statusline#get'](g:actual_curbuf, {
---           \ 'format_running': '… ({{running_job_names}})',
---           \ 'format_loclist_ok': '✓',
---           \ 'format_quickfix_ok': '',
---           \ 'format_quickfix_issues': '%s',
---           \ })
---     end
--- end
+
+-- cmd [[
+-- hi Normal guibg=NONE ctermbg=NONE
+-- hi! NonText guibg=NONE ctermbg=NONE
+-- hi EndOfBuffer guibg=NONE ctermbg=NONE
+-- ]]

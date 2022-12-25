@@ -82,8 +82,8 @@ vim.cmd [[
 set tabline=%!MyTabLine()
 
 hi! TabLine ctermbg=NONE guibg=NONE cterm=NONE gui=NONE ctermfg=232 guifg=#aaaaaa
-hi! TabLineSel guibg=#6699cc ctermfg=15 guifg=#ffffff gui=bold
-hi! TabLineFill guibg=NONE ctermbg=NONE
+hi! TabLineSel guifg=#d8dee9 guibg=#65737e gui=bold
+hi! TabLineFill guibg=#1b2b34
 
 function! MyTabLine()
     let s = ''
