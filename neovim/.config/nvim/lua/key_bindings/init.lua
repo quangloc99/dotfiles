@@ -119,7 +119,7 @@ end
 M.general_keys()
 M.formatter_keybind()
 M.file_explorer_keybind()
--- M.Coc_keybind()
+M.Coc_keybind()
 M.setup_single_file_runner()
 
 return M

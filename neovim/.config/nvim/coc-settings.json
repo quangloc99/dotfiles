@@ -1,0 +1,6 @@
+{
+    "coc.preferences.noselect": true,
+    "suggest.enablePreselect": false,
+    "suggest.noselect": true,
+    "clangd.fallbackFlags": [ "-std=c++20" ]
+}

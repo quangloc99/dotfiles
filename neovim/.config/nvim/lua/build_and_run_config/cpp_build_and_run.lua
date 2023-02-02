@@ -39,7 +39,7 @@ end
 function M.preset_to_build_string(preset)
     local flags = vim.b.cpp_normal_flags
     if preset.with_safety_flags then
-        flags = vim.g.cpp_safety_flags
+        flags = vim.b.cpp_safety_flags
     end
     local debug_flags = ''
     if preset.with_debug_flags then

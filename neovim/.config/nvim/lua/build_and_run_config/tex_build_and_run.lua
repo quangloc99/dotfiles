@@ -7,9 +7,9 @@ require 'single_file_runner'.register_single_file_command {
         end
 
         if choice == 1 then
-            return 'pdflatex -shell-escape -output-format=pdf "%:p" -halt-on-error'
+            return 'pdflatex -halt-on-error -shell-escape -output-format=pdf "%:p"'
         else
-            return 'lualatex -shell-escape -output-format=pdf "%:p" -halt-on-error'
+            return 'lualatex -halt-on-error -shell-escape -output-format=pdf "%:p"'
         end
     end,
     run_single_file_command = function()

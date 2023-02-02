@@ -40,11 +40,11 @@ return require('packer').startup(function(use)
     use 'hrsh7th/vim-vsnip'
     use 'hrsh7th/vim-vsnip-integ'
 
-    -- use {
-    --     'neoclide/coc.nvim',
-    --     branch = 'release',
-    --     run = 'yarn install --frozen-lockfile',
-    -- }
+    use {
+        'neoclide/coc.nvim',
+        branch = 'release',
+        run = 'yarn install --frozen-lockfile',
+    }
 
     use 'leafgarland/typescript-vim'
 
