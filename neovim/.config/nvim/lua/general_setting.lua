@@ -6,7 +6,13 @@ opt.relativenumber = true
 opt.termguicolors = true
 opt.background = 'dark'
 -- cmd.colorscheme 'PaperColor'
-cmd.colorscheme 'OceanicNext'
+-- cmd.colorscheme 'OceanicNext'
+require('nightfox').setup {
+    options = {
+        transparent = true
+    }
+}
+cmd.colorscheme 'nordfox'
 
 opt.backspace = '2'
 opt.tabstop = 4
@@ -54,8 +60,8 @@ vim.g.vimsence_file_explorer_text = 'In NERDTree'
 vim.g.vimsence_file_explorer_details = 'Looking for life purposes'
 
 
--- cmd [[
--- hi Normal guibg=NONE ctermbg=NONE
--- hi! NonText guibg=NONE ctermbg=NONE
--- hi EndOfBuffer guibg=NONE ctermbg=NONE
--- ]]
+cmd [[
+hi Normal guibg=NONE ctermbg=NONE
+hi! NonText guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
+]]

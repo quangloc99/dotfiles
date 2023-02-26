@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
 
     use 'NLKNguyen/papercolor-theme'
     use 'mhartington/oceanic-next'
+    use 'EdenEast/nightfox.nvim'
 
     use 'neomake/neomake'
 
