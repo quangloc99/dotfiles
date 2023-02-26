@@ -2,6 +2,7 @@ require 'config_module'.register(...)
 
 local cmd, opt = vim.cmd, vim.opt
 
+opt.relativenumber = true
 opt.termguicolors = true
 opt.background = 'dark'
 -- cmd.colorscheme 'PaperColor'
