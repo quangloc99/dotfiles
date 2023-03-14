@@ -34,12 +34,12 @@ function M.formatter_keybind()
     vim.cmd [[
     function! FormatFile()
         let l:lines="all"
-        py3f ~/.vim/clang-format.py
+        py3f ~/.config/nvim/clang-format.py
     endfunction
     ]]
 
     vim.api.nvim_create_autocmd('BufEnter', {
-        pattern = { '*.cpp', '*.c' },
+        pattern = { '*.cpp', '*.c', '*.hpp', '*.h' },
         group = clangformat_group,
         callback = function()
             keyset('n', '<leader>fm', function() vim.fn.FormatFile() end)
