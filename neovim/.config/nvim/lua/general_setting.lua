@@ -1,18 +1,33 @@
-require 'config_module'.register(...)
-
 local cmd, opt = vim.cmd, vim.opt
+local keyset = vim.keymap.set
+
+vim.g.mapleader = ','
+
+keyset('n', '<leader>w', ':w<cr>')
+
+-- Empty line indentation
+-- https://vim.fandom.com/wiki/Get_the_correct_indent_for_new_lines_despite_blank_lines
+-- There might be more, but these are frequently used so this is just a quick fix.
+keyset('i', '<CR>', '<CR>x<BS>')
+keyset('n', 'o', 'ox<BS>')
+keyset('n', 'O', 'Ox<BS>')
+
+-- quick switch to windows
+keyset('n', '<C-H>', '<C-W>h')
+keyset('n', '<C-J>', '<C-W>j')
+keyset('n', '<C-K>', '<C-W>k')
+keyset('n', '<C-L>', '<C-W>l')
+
+-- quick tab switch
+keyset('n', '<A-j>', 'gT')
+keyset('n', '<A-k>', 'gt')
 
 opt.relativenumber = true
 opt.termguicolors = true
 opt.background = 'dark'
 -- cmd.colorscheme 'PaperColor'
 -- cmd.colorscheme 'OceanicNext'
-require('nightfox').setup {
-    options = {
-        transparent = true
-    }
-}
-cmd.colorscheme 'nordfox'
+-- cmd.colorscheme 'nordfox'
 
 opt.backspace = '2'
 opt.tabstop = 4
