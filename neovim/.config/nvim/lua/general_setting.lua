@@ -8,9 +8,9 @@ keyset('n', '<leader>w', ':w<cr>')
 -- Empty line indentation
 -- https://vim.fandom.com/wiki/Get_the_correct_indent_for_new_lines_despite_blank_lines
 -- There might be more, but these are frequently used so this is just a quick fix.
-keyset('i', '<CR>', '<CR>x<BS>')
-keyset('n', 'o', 'ox<BS>')
-keyset('n', 'O', 'Ox<BS>')
+-- keyset('i', '<CR>', '<CR>x<BS>')
+-- keyset('n', 'o', 'ox<BS>')
+-- keyset('n', 'O', 'Ox<BS>')
 
 -- quick switch to windows
 keyset('n', '<C-H>', '<C-W>h')
