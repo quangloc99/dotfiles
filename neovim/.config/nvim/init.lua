@@ -36,6 +36,7 @@ require("lazy").setup({
             vim.g.sonokai_style = 'andromeda'
             vim.g.sonokai_transparent_background = 1
             vim.g.sonokai_enable_italic = 1
+            vim.g.sonokai_diagnostic_virtual_text='highlighted'
             vim.cmd.colorscheme('sonokai')
         end,
     },
@@ -200,6 +201,10 @@ require("lazy").setup({
 			vim.o.signcolumn = "yes"
 		end,
 	},
+    
+    {
+        "posva/vim-vue",
+    }
 
 	-- use { 'dense-analysis/ale' }
 })
