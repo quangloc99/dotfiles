@@ -209,10 +209,8 @@ require("lazy").setup({
         end,
     },
 
-    {
-        "posva/vim-vue",
-    },
-
+    { "posva/vim-vue", },
+    { "udalov/kotlin-vim" },
     -- use { 'dense-analysis/ale' }
 })
 
