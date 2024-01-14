@@ -128,7 +128,7 @@ require("lazy").setup({
                     globalstatus = true,
                     always_divide_middle = false,
                     -- theme = "OceanicNext",
-                    theme = "sonokai",
+                    theme = "auto",
                 },
                 sections = {
                     lualine_a = { "mode" },
