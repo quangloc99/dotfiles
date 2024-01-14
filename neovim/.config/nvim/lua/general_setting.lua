@@ -25,9 +25,6 @@ keyset('n', '<A-k>', 'gt')
 opt.relativenumber = true
 opt.termguicolors = true
 opt.background = 'dark'
--- cmd.colorscheme 'PaperColor'
--- cmd.colorscheme 'OceanicNext'
--- cmd.colorscheme 'nordfox'
 
 opt.backspace = '2'
 opt.tabstop = 4
