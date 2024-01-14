@@ -1,5 +1,3 @@
-require 'config_module' .register(...)
-
 local M = {}
 
 M.presets = {

@@ -16,10 +16,3 @@ require("build_and_run_config")
 require("key_bindings")
 
 require("lazy").setup("plugins")
-
-local function init()
-    require("config_module")
-    require("general_setting")
-    require("key_bindings")
-    require("build_and_run_config")
-end
