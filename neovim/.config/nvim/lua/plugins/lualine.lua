@@ -26,7 +26,7 @@ local M = {
 
         if vim.fn.exists(":codeium#Complete()") then
             local function codeium_status()
-                return vim.api.nvim_call_function("codeium#GetStatusString", {})
+                return 'Codeium ' .. vim.api.nvim_call_function("codeium#GetStatusString", {})
             end
             table.insert(lualine_c, codeium_status)
         end
