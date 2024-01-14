@@ -192,6 +192,27 @@ require("lazy").setup({
                 ":Telescope file_browser<CR>",
                 { noremap = true }
             )
+            vim.keymap.set(
+                "n",
+                "<leader>Ft", -- t for tree
+                ":Telescope file_browser respect_gitignore=0<CR>",
+                { noremap = true }
+            )
+            local fb_actions = require "telescope._extensions.file_browser.actions"
+            require("telescope").setup {
+                extensions = {
+                    file_browser = {
+                        mappings = {
+                            ["i"] = {
+                                ["<A-a>"] = fb_actions.toggle_respect_gitignore
+                            },
+                            ["n"] = {
+                                [",a"] = fb_actions.toggle_respect_gitignore
+                            }
+                        }
+                    }
+                }
+            }
             require("telescope").load_extension("file_browser")
         end,
     },
@@ -209,7 +230,7 @@ require("lazy").setup({
         end,
     },
 
-    { "posva/vim-vue", },
+    { "posva/vim-vue" },
     { "udalov/kotlin-vim" },
     -- use { 'dense-analysis/ale' }
 })
