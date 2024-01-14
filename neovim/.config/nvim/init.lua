@@ -22,6 +22,4 @@ local function init()
     require("general_setting")
     require("key_bindings")
     require("build_and_run_config")
-    require("lsp")
-    require("lines")
 end
