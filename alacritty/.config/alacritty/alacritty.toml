@@ -2,28 +2,29 @@
 size = 12.0
 
 [font.offset]
-x = -1
-y = 4
+# x = -1
+# y = 4
 
 [font.bold]
-family = "Monaspace Neon"
+family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "Monaspace Neon"
+family = "JetBrainsMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "Monaspace Neon"
+family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "Monaspace Neon"
+family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [window]
 opacity = 0.8
 blur = true
+dimensions = { columns = 120, lines = 40 }
 
 [cursor.style]
 blinking = "On"
