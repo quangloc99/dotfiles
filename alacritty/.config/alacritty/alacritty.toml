@@ -1,5 +1,5 @@
 [font]
-size = 12.0
+size = 9
 
 [font.offset]
 # x = -1
@@ -22,9 +22,10 @@ family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [window]
-opacity = 0.8
+opacity = 0.95
 blur = true
-dimensions = { columns = 120, lines = 40 }
+dimensions = { columns = 180, lines = 50 }
+decorations = "None"
 
 [cursor.style]
 blinking = "On"
