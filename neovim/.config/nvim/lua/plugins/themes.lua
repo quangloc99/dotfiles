@@ -36,4 +36,32 @@ return {
             vim.cmd.colorscheme("sonokai")
         end,
     },
+    {
+        "AlexvZyl/nordic.nvim",
+        enabled = false,
+        lazy = false,
+        priority = 1000,
+        opts = {
+            bold_keywords = true,
+            transparent_bg = true,
+            bright_border = true,
+            reduce_blue = false,
+            swap_backgrounds = true,
+            cursorline = {
+                -- Bold font in cursorline.
+                bold = false,
+                -- Bold cursorline number.
+                bold_number = true,
+                -- Available styles: 'dark', 'light'.
+                theme = 'light',
+                -- Blending the cursorline bg with the buffer bg.
+                blend = 0.5,
+            },
+        },
+        config = function(Lazy, opts)
+            local nordic = require 'nordic'
+            nordic.setup(opts)
+            nordic.load()
+        end
+    }
 }
