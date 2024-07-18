@@ -5,7 +5,7 @@ return {
         vim.g.neoformat_try_node_exe = 1
         vim.g.neoformat_enabled_typescript = { "prettier" }
         vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-            pattern = { "*.js", "*.ts", "*.cpp", "*.hpp", "*.h" },
+            pattern = { "*.js", "*.ts", "*.cpp", "*.hpp", "*.h", "*.sol" },
             callback = function()
                 vim.cmd("Neoformat")
             end,
