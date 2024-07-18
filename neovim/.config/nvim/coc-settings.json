@@ -12,4 +12,5 @@
     ],
     "eslint.packageManager": "yarn",
     "eslint.experimental.useFlatConfig": true,
+    "@nomicfoundation/coc-solidity.telemetry": false
 }
