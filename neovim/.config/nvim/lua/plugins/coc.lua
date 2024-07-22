@@ -1,8 +1,25 @@
+local extensions = {
+    'coc-tsserver',
+    'coc-eslint',
+    
+    'coc-cmake',
+    'coc-clangd',
+
+    '@nomicfoundation/coc-solidity',
+
+    'coc-yaml',
+
+    'coc-calc',
+    'coc-spell-checker'
+}
+
 return {
     "neoclide/coc.nvim",
     branch = "release",
     run = "yarn install --frozen-lockfile",
     init = function()
+        vim.g.coc_global_extensions = extensions
+
         local keyset = vim.keymap.set
 
         local function show_documentation()
