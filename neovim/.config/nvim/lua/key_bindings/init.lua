@@ -6,6 +6,8 @@ function M.general_keys()
     vim.g.mapleader = ','
 
     keyset('n', '<leader>w', ':w<cr>')
+    keyset('n', '<leader>cn', ':cnext<cr>')
+    keyset('n', '<leader>cp', ':cprev<cr>')
 
     -- Empty line indentation
     -- https://vim.fandom.com/wiki/Get_the_correct_indent_for_new_lines_despite_blank_lines
