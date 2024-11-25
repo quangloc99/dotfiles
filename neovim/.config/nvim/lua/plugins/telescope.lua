@@ -5,6 +5,16 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
+        config = true,
+        opts = {
+            defaults = {
+                layout_strategy = 'flex',
+                layout_config = {
+                    flip_columns = 180,
+                    flip_lines = 20,
+                },
+            },
+        },
         init = function()
             local builtin = require("telescope.builtin")
             vim.keymap.set("n", "<leader>ff", builtin.git_files, {})
