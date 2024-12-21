@@ -1,3 +1,5 @@
+local utils = require('build_and_run_config/utils')
+
 local M = {}
 
 M.presets = {
@@ -43,28 +45,12 @@ function M.preset_to_build_string(preset)
     if preset.with_debug_flags then
         debug_flags = vim.b.cpp_debug_flags
     end
-    local file_info = M.get_file_info()
+    local file_info = utils.get_file_info()
     return string.format(
         'mkdir -p "%s" && g++ %s -std=%s -O%s %s %s "%%:p" -o "%s"',
         file_info.build_dirname, vim.b.cpp_defines, vim.b.cpp_std,
         preset.opt_mode, flags, debug_flags, file_info.exe_file
     )
-end
-
-function M.get_file_info(filename)
-    if filename == nil then
-        filename = vim.fn.expand("%:p")
-    end
-    local dirname = vim.fs.dirname(filename)
-    local build_dirname = dirname .. '/' .. vim.b.cpp_out_dir
-    local filename_no_ext = string.gsub(vim.fs.basename(filename), '^(.*)%.(.*)$', '%1')
-    local exe_file = build_dirname .. '/' .. filename_no_ext
-    return {
-        dirname = dirname,
-        build_dirname = build_dirname,
-        filename_no_ext = filename_no_ext,
-        exe_file = exe_file
-    }
 end
 
 function M.gen_makeprg()
@@ -85,11 +71,12 @@ function M.setup()
     b.cpp_safety_flags = '-Wall -Wshadow -Wconversion -fsanitize=address -fsanitize=undefined -fno-sanitize-recover -ffinite-math-only -D_GLIBCXX_DEBUG'
     b.cpp_normal_flags = '-Wall -Wshadow -Wconversion'
     b.cpp_debug_flags = '-DLOCAL_DEBUG -g'
-    b.cpp_out_dir = 'build'
+
+    utils.setup()
 end
 
 function M.run_single_file_command()
-    return string.format('%s', M.get_file_info().exe_file)
+    return string.format('%s', utils.get_file_info().exe_file)
 end
 
 M.filetype = 'cpp'
