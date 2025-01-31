@@ -64,6 +64,10 @@ function M.register_single_file_command(opts)
             end
             vim.b.gen_makeprg = opts.gen_makeprg
             vim.b.run_single_file_command = opts.run_single_file_command
+
+            vim.b.single_file_input = 'main.inp'
+            vim.b.single_file_output = 'main.out'
+            vim.b.single_file_error = '.log'
         end
     })
 end
