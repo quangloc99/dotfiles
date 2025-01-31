@@ -6,9 +6,9 @@
     // "diagnostic.displayByAle": true,
     "tsserver.useLocalTsdk": true,
     "workspace.ignoredFolders": [
-      "$HOME",
-      "$HOME/.cargo/**",
-      "$HOME/.rustup/**"
+      // "$HOME",
+      // "$HOME/.cargo/**",
+      // "$HOME/.rustup/**"
     ],
     "eslint.packageManager": "yarn",
     "eslint.experimental.useFlatConfig": true,
