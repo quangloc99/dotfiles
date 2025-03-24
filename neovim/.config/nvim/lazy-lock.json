@@ -22,6 +22,7 @@
   "typescript-vim": { "branch": "master", "commit": "8d169e16b5487771f6568125d4c63e6086e524d9" },
   "vim-fugitive": { "branch": "master", "commit": "fcb4db52e7f65b95705aa58f0f2df1312c1f2df2" },
   "vim-github-link": { "branch": "master", "commit": "9df238dbf150417772f2a1b7748750cfeda3d167" },
+  "vim-setup": { "branch": "master", "commit": "4393edc3b957328e688a36563e908ec225d0e3b3" },
   "vim-vue": { "branch": "master", "commit": "6ae8fa751fbe4c6605961d2309f8326873fa40a6" },
   "vim-yul": { "branch": "master", "commit": "5b64d178102536e73d3fc9da679a3d7da6711501" }
 }
