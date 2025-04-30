@@ -6,26 +6,39 @@ size = 9
 # y = 4
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+family = "Monaspace Krypton Var"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font"
+family = "Monaspace Radon Var"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "Monaspace Radon Var"
 style = "Italic"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
-style = "Regular"
+family = "JetBrains Mono Nerd Font"
+# family = "Monaspace Radon Var"
+style = "light"
 
 [window]
-opacity = 0.95
+opacity = 0.9
 blur = true
 dimensions = { columns = 180, lines = 50 }
 decorations = "None"
 
 [cursor.style]
 blinking = "On"
+
+### Fonts
+
+## JetBrains Mono Nerd Font
+# style = "Bold" | "Regular" | "Italic"
+
+## Monaspace Radon Var
+# Monaspace Xenon Var
+# Monaspace Argon Var
+# Monaspace Neon Var
+# Monaspace Krypton Var
+
