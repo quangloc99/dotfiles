@@ -11,6 +11,7 @@ return {
                 "*.cpp", "*.hpp", "*.h",
                 "*.sol",
                 "*.rs",
+                "*.md",
             },
             callback = function()
                 vim.cmd("Neoformat")
