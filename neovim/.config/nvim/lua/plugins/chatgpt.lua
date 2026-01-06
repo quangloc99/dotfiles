@@ -22,10 +22,34 @@ return {
         }
     },
     {
-        "github/copilot.vim"
+        "github/copilot.vim",
+        config = function()
+            vim.g.copilot_filetypes = {
+                ['*'] = false,
+                ['javascript'] = true,
+                ['typescript'] = true,
+                ['lua'] = true,
+                ['python'] = true,
+                ['html'] = true,
+                ['css'] = true,
+                ['markdown'] = true,
+                ['solidity'] = true,
+                ['json'] = true,
+                ['yaml'] = true,
+                ['rust'] = true,
+                ['cpp'] = true,
+                ['c'] = true,
+                ['java'] = true,
+                ['go'] = true,
+                ['fish'] = true,
+                ['vim'] = true,
+            }
+            vim.keymap.set("i", "<C-J>", 'copilot#Accept("<CR>")', { expr = true, silent = true })
+        end,
     },
     {
         "CopilotC-Nvim/CopilotChat.nvim",
+        enabled = false,
         dependencies = {
             { "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
             { "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
