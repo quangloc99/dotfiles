@@ -5,9 +5,9 @@ return {
         "lewis6991/gitsigns.nvim",
         opts = {
             numhl = true,
-            word_diff = true,
+            word_diff = false,
             linehl = true,
-            update_debounce = 500,
+            update_debounce = 1000,
             on_attach = function(bufnr)
                 local gs = package.loaded.gitsigns
 
