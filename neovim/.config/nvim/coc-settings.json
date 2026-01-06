@@ -13,5 +13,11 @@
     "eslint.packageManager": "yarn",
     "eslint.experimental.useFlatConfig": true,
     "@nomicfoundation/coc-solidity.telemetry": false,
-    "inlayHint.enable": false
+    "inlayHint.enable": false,
+
+    "rust-analyzer.rustfmt.extraArgs": ["+nightly"],
+    "rust-analyzer.fmt.toolchain": "nightly",
+    "cSpell.words": [
+        "pendle"
+    ]
 }
