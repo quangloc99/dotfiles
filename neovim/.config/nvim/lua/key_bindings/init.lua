@@ -4,6 +4,7 @@ local keyset = vim.keymap.set
 
 function M.general_keys()
     vim.g.mapleader = ','
+    vim.g.maplocalleader = ',,'
 
     keyset('n', '<leader>w', ':w<cr>')
     keyset('n', '<leader>cn', ':cnext<cr>')
