@@ -1,0 +1,104 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+	"outline_panel": {
+  "dock": "left"
+ },
+ "collaboration_panel": {
+  "dock": "left"
+ },
+ "git_panel": {
+  "dock": "left"
+ },
+ "icon_theme": {
+  "mode": "dark",
+  "light": "Zed (Default)",
+  "dark": "Zed (Default)"
+ },
+ "indent_guides": {
+		"background_coloring": "disabled",
+		"coloring": "indent_aware"
+	},
+	"vim": {
+		"use_smartcase_find": true,
+		"toggle_relative_line_numbers": true
+	},
+	"project_panel": {
+		"dock": "left",
+  "hide_hidden": true
+	},
+	"buffer_font_weight": 300.0,
+	"show_whitespaces": "selection",
+	"experimental.theme_overrides": {
+		"background": "#0008",
+		"editor.background": "#0002",
+		"editor.gutter.background": "#0005",
+		"background.appearance": "blurred",
+		"border": "#555"
+	},
+	"active_pane_modifiers": {
+		"border_size": 2.0
+	},
+	"git": {
+		"gutter_debounce": 1
+	},
+	"edit_predictions": {
+		"disabled_globs": ["*.sh"]
+	},
+	"agent": {
+		"dock": "right",
+  "default_profile": "ask",
+		"default_model": {
+			"provider": "copilot_chat",
+			"model": "gpt-5"
+		},
+		"favorite_models": [],
+		"model_parameters": []
+	},
+	"languages": {
+		"Solidity": {
+			"formatter": {
+				"external": {
+					"command": "forge",
+					"arguments": ["fmt", "--raw", "-"]
+				}
+			}
+		},
+		"JavaScript": { "formatter": { "language_server": { "name": "biome" } } },
+		"TypeScript": {
+			"language_servers": ["biome", "!eslint", "..."],
+			"formatter": { "language_server": { "name": "biome" } }
+		},
+		"TSX": { "formatter": { "language_server": { "name": "biome" } } },
+		"JSON": {
+			"formatter": {
+				"language_server": { "name": "biome" }
+			}
+		},
+		"JSONC": { "formatter": { "language_server": { "name": "biome" } } },
+		"CSS": { "formatter": { "language_server": { "name": "biome" } } },
+		"GraphQL": { "formatter": { "language_server": { "name": "biome" } } }
+	},
+	"lsp": {
+		"eslint": {}
+	},
+	"buffer_line_height": "standard",
+	"buffer_font_family": "Fantasque Sans Mono",
+	"relative_line_numbers": "enabled",
+	"base_keymap": "VSCode",
+	"vim_mode": true,
+	"ui_font_size": 16,
+	"buffer_font_size": 15.0,
+	"format_on_save": "on",
+	"theme": {
+		"mode": "dark",
+		"light": "Monokai Night Soft",
+		"dark": "Zedokai Darker (Filter Octagon)"
+	}
+}

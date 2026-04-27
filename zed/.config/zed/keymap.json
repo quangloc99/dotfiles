@@ -1,0 +1,54 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // "shift shift": "file_finder::Toggle"
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      // "j k": "vim::NormalBefore"
+    },
+  },
+  // override `,` so that `,` acts as vim leader
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      ", ,": "vim::RepeatFindReversed",
+    },
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      ",": null,
+    },
+  },
+  {
+    "context": "((VimControl && !menu) || (!Editor && !Terminal))",
+    "bindings": {
+      "alt-k": "vim::GoToTab",
+      "alt-j": "vim::GoToPreviousTab",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      ", w": "workspace::Save",
+      ", f f": "file_finder::Toggle",
+    },
+  },
+  {
+    "context": "GitPanel && ChangesList",
+    "bindings": {
+      "-": "git::ToggleStaged",
+      "shift-x": "git::RestoreFile",
+    },
+  },
+]
