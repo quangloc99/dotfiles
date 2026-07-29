@@ -2,3 +2,7 @@ background-opacity = 0.7
 background-blur = true
 
 keybind = global:super+alt+f12=toggle_quick_terminal 
+macos-option-as-alt = true
+
+font-family = Fantasque Sans Mono
+font-size = 15
